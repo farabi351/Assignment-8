@@ -30,9 +30,9 @@ const uninstall=c=>{
   console.log('you clicked uninstall')
 
 
-   //this will delete uninstall div from ui
-   //setMyUninstall(prev => prev.filter(app => app.id !== c));
-   //setMyUninstall(myUninstall);
+
+
+   //this will delete uninstall div in local storage and UI
    setAppList(prev => prev.filter(app => app.id !== c.id));
 
 

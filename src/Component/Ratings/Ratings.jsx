@@ -27,8 +27,8 @@ const Ratings = ({myData}) => {
   <BarChart
     width={1000}
     height={400}
-    data={myData}     // 👈 must be the ratings array
-    layout="vertical"         // 👈 THIS makes it horizontal
+    data={myData}     
+    layout="vertical"        
     // margin={{ top: 20, right: 30, left: 40, bottom: 20 }}
   >
     {/* <CartesianGrid strokeDasharray="3 3" /> */}
@@ -36,7 +36,7 @@ const Ratings = ({myData}) => {
       <YAxis
         dataKey="name"
         type="category"
-        reversed        // ⭐ THIS flips order visually
+        reversed        //  THIS flips order visually
       />
     
     {/* <Tooltip /> */}

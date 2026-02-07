@@ -80,18 +80,7 @@ Swal.fire({
 
             <input value={input} type="search" placeholder="Type here" className="input w-auto"  onChange={(e) => setInput(e.target.value)}/>
 
-{/*             
-             {
-                  myAppData.map(c=><FilterApps c={c}></FilterApps>)
-             } */}
 
-
-
-
-           
-           
-            {/* <input type="search" name="" id="" /> */}
-            {/*  */}
 
          </div>
 

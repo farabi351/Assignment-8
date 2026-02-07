@@ -68,20 +68,3 @@ const Navbar = () => {
 export default Navbar;
 
 
-// <div className="flex">
-                //     <a
-                //        href="https://www.apple.com/app-store/"
-                //        target="_blank"
-                //        rel="noopener noreferrer"
-                //        className="btn flex items-center gap-2"
-                //     >
-                   
-                //     <img
-                //      src={appStore}
-                //      alt="Google Play"
-                //      className="h-[24px] w-[24px]"
-                //     />
-                //           App Store
-                //     </a>
-
-                // </div>
