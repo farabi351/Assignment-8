@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { useLoaderData } from 'react-router';
 import SingleApp from '../SingleApp/SingleApp';
 import FilterApps from '../FilterApps/FilterApps';
  import { useState } from 'react';
+ import { useNavigate } from "react-router";
+import { useEffect } from 'react';
+
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+
+
+const MySwal = withReactContent(Swal)
+
+
 
  
 
@@ -17,13 +27,36 @@ const Apps = () => {
 
     //const findMyApp=myAppData.filter(f=>f===input)
 
+    const navigate = useNavigate();
+
     
      const findMyApp = myAppData.filter(app =>
+          
           app.title.toLowerCase().includes(input.toLowerCase())
      
           
      
  );
+
+useEffect(() => {
+  if (input && findMyApp.length === 0) {
+    navigate("/not-found");
+  }
+}, [input, findMyApp, navigate]);
+
+
+
+
+Swal.fire({
+  position: "top-middle",
+  icon: "success",
+  title: "Loading for you",
+  showConfirmButton: false,
+  timer: 700
+});
+
+
+
 
  console.log(findMyApp);
 
@@ -71,7 +104,7 @@ const Apps = () => {
             <div className='md:grid grid-cols-4 mx-15'>
 
             
-
+           
             
 
 

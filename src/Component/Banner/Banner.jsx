@@ -9,12 +9,34 @@ import { useLoaderData } from 'react-router';
 import TrendingApps from '../TrendingApps/TrendingApps';
 
 
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+
+
+const MySwal = withReactContent(Swal)
+
+
+
+
+
+
 const Banner = () => {
     //const [myApp,setMyApp]=useState([]);
     const appData=useLoaderData();
     //console.log(appData);
     //console.log(myApp);
     //appData.map(c=>console.log(c))
+
+    Swal.fire({
+  position: "top-middle",
+  icon: "success",
+  title: "Loading for you",
+  showConfirmButton: false,
+  timer: 700
+});
+
+
+
    
     return (
         <div className='justify-center items-center text-center  bg-[#E9E9E9]'>

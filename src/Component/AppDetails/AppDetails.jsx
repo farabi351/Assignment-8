@@ -4,8 +4,15 @@ import downloads from '../../assets/icon-downloads.png';
 import ratings from '../../assets/icon-ratings.png';
 import reviews from '../../assets/icon-review.png';
 import Ratings from '../Ratings/Ratings';
+import { addToStoredDB } from '../../Utility/addToDb';
+import { toast, ToastContainer } from 'react-toastify';
+import { useState } from 'react';
+
+
 
 const AppDetails = () => {
+
+    const [installed, setInstalled] = useState(false);
 
     const {id}=useParams();
 
@@ -18,7 +25,7 @@ const AppDetails = () => {
 
     //converting string id to number
     const appId=parseInt(id);
-    console.log(appId);
+   // console.log(appId);
    
     //load all the data here
     const data =useLoaderData();
@@ -32,13 +39,44 @@ const AppDetails = () => {
     // console.log(typeof(id),data,singleAppData);
 
     const myData=singleAppData.ratings;
-    //console.log(myData)
+    console.log(myData)
+
+
+
+
+
+
+
+
+
+
+    const handleMarkAsCarted=id=>{
+
+    addToStoredDB(id);
+
+   }
+
+
+
+   const handleInstalled=()=>{
+    //console.log("you clicked installed",id)
+    toast("You have installed the App")
+    setInstalled(prev => !prev);
+   }
+
+
+
+
+
+
+
     
     return (
-        <div className='p-15 bg-blue-100'>
-            <div className='flex'>
+        <div onClick={()=>handleMarkAsCarted(id)} className='p-15 bg-blue-100'>
+            <ToastContainer></ToastContainer>
+            <div className='flex flex-col md:flex-row'>
 
-                <img className='h-[350px] w-[350px] p-5 mr-5 border-  bg-white' src={singleAppData.image} alt="" />
+                <img className='md:h-[350px] md:w-[350px] p-5 mr-5 border-  bg-white' src={singleAppData.image} alt="" />
 
                 
 
@@ -49,7 +87,7 @@ const AppDetails = () => {
 
                     </div>
                     
-                    <div className='flex gap-5'>
+                    <div className='flex flex-col md:flex-row gap-5'>
                          
                          <div className='flex-row'>
                            <img className='justify-center' src={downloads} alt="" />
@@ -78,9 +116,9 @@ const AppDetails = () => {
 
                     </div>
 
-                    <div className='btn bg-green-500 text-white my-10'>
+                    <div onClick={handleInstalled} className='btn bg-green-500 text-white my-10'>
                             {/* onclick */}
-                            <button>Install Now (<span>{singleAppData.size} MB)</span></button>
+                            <button disabled={installed}>{installed ? "Installed" : <>Install Now <span>({singleAppData.size} MB)</span></>}</button>
                     </div>
 
 
@@ -102,9 +140,9 @@ const AppDetails = () => {
 
             </div>
 
-            <div className='h-[350px] flex gap-5 mt-20'>
+            <div className='h-[350px] flex-col gap-5 mt-20'>
 
-                <h1 className='text-start text-4xl font-semibold'>Ratings</h1>
+                <h1 className='text-start text-4xl font-semibold md:mb-10'>Ratings</h1>
 
                 {/* {
                     singleAppData.ratings.map(t=><Ratings t={t}></Ratings>)
@@ -114,9 +152,9 @@ const AppDetails = () => {
 
             </div>
 
-            <div className='mt-50'>
+            <div className='mt-25 md:mt-50'>
                 <h1 className='text-3xl font-bold mb-5'>Description</h1>
-                <p className='text-2xl'>{singleAppData.description}</p>
+                <p className='text-2xl'>{singleAppData.title} {singleAppData.longDesc}</p>
             </div>
 
             

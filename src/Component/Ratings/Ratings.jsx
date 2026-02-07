@@ -3,7 +3,7 @@ import { Bar, BarChart, Line, LineChart, XAxis, YAxis,CartesianGrid,Tooltip } fr
 
 const Ratings = ({myData}) => {
 
-    console.log(myData);
+   // console.log(myData);
 
     
 
@@ -23,6 +23,7 @@ const Ratings = ({myData}) => {
         // </div>
 
         <div>
+             
   <BarChart
     width={1000}
     height={400}

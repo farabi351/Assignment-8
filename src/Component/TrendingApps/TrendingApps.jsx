@@ -16,7 +16,7 @@ const TrendingApps = ({c}) => {
 
             
 
-            <div className=' h-[550px] mb-10 border- border-red-300 p-10 bg-white'>
+            <div className='h-[550px] mb-10 border- border-red-300 p-10 bg-white'>
                 <img className='mb-10' src={c.image} alt="" />
                 <h1 className='text-2xl font-bold'>{c.title}: {c.description}</h1>
                 <div className='flex justify-between border- border-red-500 mt-5'>

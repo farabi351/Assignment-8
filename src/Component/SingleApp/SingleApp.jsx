@@ -4,7 +4,12 @@ import AppDetails from '../AppDetails/AppDetails';
 import download from '../../assets/icon-downloads.png'
 import star from '../../assets/icon-ratings.png'
 
+
 const SingleApp = ({d}) => {
+
+
+  
+
 
     //console.log(d);
 
@@ -15,7 +20,7 @@ const SingleApp = ({d}) => {
 
          
         <Link to={`/appDetails/${d.id}`}>
-            <div className='w-[300px] h-[410px] mb-10 border- border-red-300 p-10 bg-white mx-auto mr-10'>
+            <div  className='w-[300px] h-[410px] mb-10 border- border-red-300 p-10 bg-white mx-auto mr-10'>
                         <img className='mb-10 h-[200px] mx-auto' src={d.image}  alt="" />
                         <h1 className='text-md font-bold'>{d.title}: {d.description}</h1>
                         <div className='flex justify-between border- border-red-500 mt-5'>
